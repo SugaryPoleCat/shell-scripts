@@ -16,7 +16,7 @@ log_file="$logfolder/discord-bot-run.log"
 source ./handlers.sh
 
 # Change directory
-bot_directory="~/PROGRAMMING/DISCORD"
+bot_directory="~/Programming/Discord"
 bot_repo="serene-bot-2"
 log_message "Changing directory to bot directory..."
 cd "$bot_directory/$bot_repo/"
