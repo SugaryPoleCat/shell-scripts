@@ -6,6 +6,7 @@
 log_folder="~/LOGS"
 if[ ! -d "$log_folder" ]; then
 	mkdir "$log_folder"
+fi
 
 # Function to log messages
 log_message() {

@@ -2,6 +2,12 @@
 
 # This script is for running serene-bot-2. If you have a discord bot yourself, modify the directory as you wish.
 
+# Check if you have tmux installed.
+if ! command -v tmux &> /dev/null; then
+    echo "tmux is not installed. Please install tmux to use this script."
+    exit 1
+fi
+
 # Get the log_file
 logfolder="~/LOGS"
 log_file="$logfolder/discord-bot-run.log"
