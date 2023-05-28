@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if we have a LOGS folder in home directory, if not, create it.
-if[ ! -d "$LOG_FOLDER" ]; then
+if [ ! -d "$LOG_FOLDER" ]; then
 	mkdir "$LOG_FOLDER"
 fi
 

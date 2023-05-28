@@ -8,7 +8,7 @@ source $SCRIPT_FOLDER/handlers.sh
 
 # ugh
 log_message "Installing node"
-sudo bash $SCRIPT_FOLDER/node-install.sh
+bash $SCRIPT_FOLDER/node-install.sh
 
 log_message "Installing git... you should have it if you have this repo."
 sudo apt install git -y

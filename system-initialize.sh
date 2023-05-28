@@ -12,21 +12,21 @@ source $SCRIPT_FOLDER/handlers.sh
 
 # Oof
 
-sudo bash $SCRIPT_FOLDER/node-install.sh
-sudo bash $SCRIPT_FOLDER/apt-update.sh
-sudo bash $SCRIPT_FOLDER/apt-packages.sh
+bash $SCRIPT_FOLDER/node-install.sh
+bash $SCRIPT_FOLDER/apt-update.sh
+bash $SCRIPT_FOLDER/apt-packages.sh
 
 # git repos
-if [ ! -d "$PROGRAMMING_FOLDER" ]; then
-	mkdir "$PROGRAMMING_FOLDER"
+if [ ! -d $PROGRAMMING_FOLDER ]; then
+	mkdir $PROGRAMMING_FOLDER
 fi
 
-if [ ! -d "$DISCORD_FOLDER" ]; then
-	mkdir "$DISCORD_FOLDER"
+if [ ! -d $DISCORD_FOLDER ]; then
+	mkdir $DISCORD_FOLDER
 fi
 
-if [ ! -d "$WEBSITES_FOLDER" ]; then
-	mkdir "$WEBSITES_FOLDER"
+if [ ! -d $WEBSITES_FOLDER ]; then
+	mkdir $WEBSITES_FOLDER
 fi
 
 cd $DISCORD_FOLDER

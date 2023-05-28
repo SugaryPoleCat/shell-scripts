@@ -34,7 +34,7 @@ fi
 
 # Update Software Packages
 log_message "Updating software packages..."
-sudo bash $script_folder/apt-update.sh
+bash $SCRIPT_FOLDER/apt-update.sh
 
 # Review Startup Applications
 log_message "Listing startup applications..."
@@ -73,5 +73,5 @@ log_message "Post-reboot main tasks completed."
 log_message "Now performing additional post reboot tasks."
 
 # The tasks.
-sudo bash $SCRIPT_FOLDER/npm-update.sh
-sudo bash $SCRIPT_FOLDER/discord-bot-run.sh
+bash $SCRIPT_FOLDER/npm-update.sh
+bash $SCRIPT_FOLDER/discord-bot-run.sh

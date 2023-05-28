@@ -9,6 +9,9 @@ log_file="$LOG_FOLDER/apt-update.log"
 # Import handlers
 source $SCRIPT_FOLDER/handlers.sh
 
+echo $SCRIPT_FOLDER
+echo $HOME
+
 # Update packages
 log_message "Updating packages..."
 output=$(sudo apt update &>> $log_file 2>&1)
