@@ -2,52 +2,54 @@
 
 # This script is for running serene-bot-2. If you have a discord bot yourself, modify the directory as you wish.
 
+# Variables
+source /home/rayine/shell-scripts/variables.sh
+
+# Get the log_file
+log_file="$log_folder/discord-bot-run.log"
+
+# Import handlers
+source $script_folder/handlers.sh
+
 # Check if you have tmux installed.
 if ! command -v tmux &> /dev/null; then
-    echo "tmux is not installed. Please install tmux to use this script."
+    log_message "tmux is not installed. Please install tmux to use this script."
     exit 1
 fi
 
-# Get the log_file
-logfolder="~/LOGS"
-log_file="$logfolder/discord-bot-run.log"
-
-# Import handlers
-source ./handlers.sh
-
 # Change directory
-bot_directory="~/Programming/Discord"
+bot_directory="$home_folder/Programming/Discord"
 bot_repo="serene-bot-2"
 log_message "Changing directory to bot directory..."
-cd "$bot_directory/$bot_repo/"
-error_check "Failed to change directory"
+output=$(cd "$bot_directory/$bot_repo/" &>> $log_file 2>&1)
+error_check "Failed to change directory. Output: $output"
 
 # Git fetch and pull
 log_message "Fetching and pulling from Git..."
-git fetch &>> "$log_file"
-error_check "Failed to fetch from Git"
-git pull &>> "$log_file"
-error_check "Failed to pull from Git"
+output=$(git fetch &>> $log_file 2>&1)
+error_check "Failed to fetch from Git. Output: $output"
+output=$(git pull &>> $log_file 2>&1)
+error_check "Failed to pull from Git. Output: $output"
 
 # Run npm update
 log_message "Running npm update..."
-npm run update &>> "$log_file"
-error_check "Failed to run npm update"
+output=$(npm run update &>> $log_file 2>&1)
+error_check "Failed to run npm update. Output: $output"
 
 # Build with TypeScript
 log_message "Building TypeScript..."
-tsc --build &>> "$log_file"
-error_check "Failed to build TypeScript"
+output=$(tsc --build &>> $log_file 2>&1)
+error_check "Failed to build TypeScript. Output: $output"
 
 # Create tmux session and start the bot
 log_message "Starting Discord bot..."
-tmux new-session -d -s discord-bot "nodemon dist/start.js --watch dist/"
-error_check "Failed to start Discord bot"
+output=$(tmux new-session -d -s discord-bot "nodemon dist/start.js --watch dist/" &>> $log_file 2>&1)
+error_check "Failed to start Discord bot. Output: $output"
 
 # Change directory back to home
 log_message "Returning home..."
-cd ~
-error_check "Failed to return to home directory"
+output=$(cd ~ &>> $log_file 2>&1)
+error_check "Failed to return to home directory. Output: $output"
 # If you can't go back to your home directory, you have some other problems on your system man.
 
 log_message "discord-bot-run exectued successfully!"

@@ -3,26 +3,28 @@
 # This script is for updating debian packages.
 # It's pretty terrible right now, doesn't even handle automatic Y'eing to questions.
 
+# Variables
+source /home/rayine/shell-scripts/variables.sh
+
 # Get the log_file
-logfolder="~/LOGS"
-log_file="$logfolder/apt-update.log"
+log_file="$log_folder/apt-update.log"
 
 # Import handlers
-source ./handlers.sh
+source $script_folder/handlers.sh
 
 # Update packages
 log_message "Updating packages..."
-sudo apt update
-error_check "Failed to update packages"
+output=$(sudo apt update &>> $log_file 2>&1)
+error_check "Failed to update packages. Output: $output"
 
 # Upgrade packages
 log_message "Upgrading packages..."
-sudo apt upgrade
-error_check "Failed to upgrade packages"
+output=$(sudo apt upgrade -y &>> $log_file 2>&1)
+error_check "Failed to upgrade packages. Output: $output"
 
 # Auto-remove useless leftovers
 log_message "Removing leftovers..."
-sudo apt auto-remove
-error_check "Failed to auto-remove leftovers"
+output=$(sudo apt auto-remove -y &>> $log_file 2>&1)
+error_check "Failed to auto-remove leftovers. Output: $output"
 
 log_message "Global npm package update successful!"
