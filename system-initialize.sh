@@ -1,31 +1,37 @@
 #!/bin/bash
 
-# Variables
-source /home/rayine/shell-scripts/variables.sh
-
 # Get the log_file
-log_file="$log_folder/apt-update.log"
+log_file="$LOG_FOLDER/apt-update.log"
 
 # Import handlers
-source $script_folder/handlers.sh
+source $SCRIPT_FOLDER/handlers.sh
 
 # Oof
 
-sudo bash $script_folder/node-install.sh
-sudo bash $script_folder/apt-update.sh
-sudo bash $script_folder/apt-packages.sh
+sudo bash $SCRIPT_FOLDER/node-install.sh
+sudo bash $SCRIPT_FOLDER/apt-update.sh
+sudo bash $SCRIPT_FOLDER/apt-packages.sh
 
 # git repos
-if[ ! -d "$repos_folder" ]; then
-	mkdir "$repos_folder"
+if[ ! -d "$PROGRAMMING_FOLDER" ]; then
+	mkdir "$PROGRAMMING_FOLDER"
 fi
 
-if[ ! -d "$discord_folder" ]; then
-	mkdir "$discord_folder"
+if[ ! -d "$DISCORD_FOLDER" ]; then
+	mkdir "$DISCORD_FOLDER"
 fi
 
-if[ ! -d "$website_folder" ]; then
-	mkdir "$website_folder"
+if[ ! -d "$WEBSITES_FOLDER" ]; then
+	mkdir "$WEBSITES_FOLDER"
 fi
 
-git clone git@github.com:SugaryPoleCat/serene-bot-2
+cd $DISCORD_FOLDER
+git clone $GIT_HUB/$DISCORD_BOT_REPO
+
+cd $WEBSITES_FOLDER
+git clone $GIT_HUB/$WEBSITE_REPO_TEST
+
+cd $SCRIPT_FOLDER
+sudo bash $SCRIPT_FOLDER/discord-bot-run.sh
+
+# Create the thing for the website stuff

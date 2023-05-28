@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# Variables
-source /home/rayine/shell-scripts/variables.sh
-
 # Get the log_file
-log_file="$log_folder/system-post-reboot.log"
+log_file="$LOG_FOLDER/system-post-reboot.log"
 
 # Import handlers
-source $script_folder/handlers.sh
+source $SCRIPT_FOLDER/handlers.sh
 
 # Array of service names
 services=("postgres" "certbot")
@@ -76,5 +73,5 @@ log_message "Post-reboot main tasks completed."
 log_message "Now performing additional post reboot tasks."
 
 # The tasks.
-sudo bash $script_folder/npm-update.sh
-sudo bash $script_folder/discord-bot-run.sh
+sudo bash $SCRIPT_FOLDER/npm-update.sh
+sudo bash $SCRIPT_FOLDER/discord-bot-run.sh

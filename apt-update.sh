@@ -3,14 +3,11 @@
 # This script is for updating debian packages.
 # It's pretty terrible right now, doesn't even handle automatic Y'eing to questions.
 
-# Variables
-source /home/rayine/shell-scripts/variables.sh
-
 # Get the log_file
-log_file="$log_folder/apt-update.log"
+log_file="$LOG_FOLDER/apt-update.log"
 
 # Import handlers
-source $script_folder/handlers.sh
+source $SCRIPT_FOLDER/handlers.sh
 
 # Update packages
 log_message "Updating packages..."

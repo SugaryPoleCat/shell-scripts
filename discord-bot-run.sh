@@ -2,14 +2,11 @@
 
 # This script is for running serene-bot-2. If you have a discord bot yourself, modify the directory as you wish.
 
-# Variables
-source /home/rayine/shell-scripts/variables.sh
-
 # Get the log_file
-log_file="$log_folder/discord-bot-run.log"
+log_file="$LOG_FOLDER/discord-bot-run.log"
 
 # Import handlers
-source $script_folder/handlers.sh
+source $SCRIPT_FOLDER/handlers.sh
 
 # Check if you have tmux installed.
 if ! command -v tmux &> /dev/null; then
@@ -19,7 +16,7 @@ fi
 
 # Change directory
 log_message "Changing directory to bot directory..."
-output=$(cd "$discord_folder/$bot_repo/" &>> $log_file 2>&1)
+output=$(cd "$DISCORD_FOLDER/$DISCORD_BOT_REPO/" &>> $log_file 2>&1)
 error_check "Failed to change directory. Output: $output"
 
 # Git fetch and pull
@@ -41,7 +38,7 @@ error_check "Failed to build TypeScript. Output: $output"
 
 # Create tmux session and start the bot
 log_message "Starting Discord bot..."
-output=$(tmux new-session -d -s discord-bot "nodemon dist/start.js --watch dist/" &>> $log_file 2>&1)
+output=$(tmux new-session -d -s $SESSION_NAME_DISCORD "nodemon dist/start.js --watch dist/" &>> $log_file 2>&1)
 error_check "Failed to start Discord bot. Output: $output"
 
 # Change directory back to home
