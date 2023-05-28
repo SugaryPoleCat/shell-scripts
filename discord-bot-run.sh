@@ -18,10 +18,8 @@ if ! command -v tmux &> /dev/null; then
 fi
 
 # Change directory
-bot_directory="$home_folder/Programming/Discord"
-bot_repo="serene-bot-2"
 log_message "Changing directory to bot directory..."
-output=$(cd "$bot_directory/$bot_repo/" &>> $log_file 2>&1)
+output=$(cd "$discord_folder/$bot_repo/" &>> $log_file 2>&1)
 error_check "Failed to change directory. Output: $output"
 
 # Git fetch and pull
@@ -52,4 +50,4 @@ output=$(cd ~ &>> $log_file 2>&1)
 error_check "Failed to return to home directory. Output: $output"
 # If you can't go back to your home directory, you have some other problems on your system man.
 
-log_message "discord-bot-run exectued successfully!"
+log_message "discord-bot-run executed successfully!"
