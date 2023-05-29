@@ -80,3 +80,7 @@ log_message "Now performing additional post reboot tasks."
 bash $SCRIPT_FOLDER/npm-update.sh
 bash $SCRIPT_FOLDER/discord-bot-run.sh
 bash $SCRIPT_FOLDER/website-test-run.sh
+
+log_file="$LOG_FOLDER/system-initialize.log"
+
+log_message "Done performing additional reboot tasks"
