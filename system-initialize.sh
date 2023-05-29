@@ -12,7 +12,6 @@ source $SCRIPT_FOLDER/handlers.sh
 
 # Oof
 
-bash $SCRIPT_FOLDER/node-install.sh
 bash $SCRIPT_FOLDER/apt-update.sh
 bash $SCRIPT_FOLDER/apt-packages.sh
 
@@ -37,6 +36,7 @@ git clone $GIT_HUB/$WEBSITE_REPO_TEST
 
 cd $SCRIPT_FOLDER
 # not sure about those things being necessary
-# sudo bash $SCRIPT_FOLDER/discord-bot-run.sh
+bash $SCRIPT_FOLDER/discord-bot-run.sh
+bash $SCRIPT_FOLDER/website-test-run.sh
 
 # Create the thing for the website stuff

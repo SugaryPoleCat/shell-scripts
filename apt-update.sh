@@ -9,9 +9,6 @@ log_file="$LOG_FOLDER/apt-update.log"
 # Import handlers
 source $SCRIPT_FOLDER/handlers.sh
 
-echo $SCRIPT_FOLDER
-echo $HOME
-
 # Update packages
 log_message "Updating packages..."
 output=$(sudo apt update &>> $log_file 2>&1)
@@ -27,4 +24,12 @@ log_message "Removing leftovers..."
 output=$(sudo apt auto-remove -y &>> $log_file 2>&1)
 error_check "Failed to auto-remove leftovers. Output: $output"
 
-log_message "Global npm package update successful!"
+echo "Refreshing snap core" &>> $log_file
+output=$(sudo snap refresh core &>> $log_file 2>&1)
+error_check "Failed to refresh snap core. Output: $output"
+
+echo "Refreshing certbot" &>> $log_file
+output=$(sudo snap refresh certbot &>> $log_file 2>&1)
+error_check "Failed to refresh certbot. Output: $output"
+
+log_message "apt-update completed!"
