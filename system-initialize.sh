@@ -17,6 +17,10 @@ bash $SCRIPT_FOLDER/apt-packages.sh
 
 log_file="$LOG_FOLDER/system-initialize.log"
 
+git config pull.rebase false
+git config user.email "$GIT_USER_EMAIL"
+git config user.name "$GIT_USER_NAME"
+
 # git repos
 if [ ! -d $PROGRAMMING_FOLDER ]; then
 	mkdir $PROGRAMMING_FOLDER
