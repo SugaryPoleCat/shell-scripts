@@ -13,7 +13,7 @@ output=$(sudo apt install nginx -y &>> $log_file 2>&1)
 error_check "Failed to install nginx. Output: $output"
 
 log_message "Installing postgres"
-output=$(sudo apt install postgres -y &>> $log_file 2>&1)
+output=$(sudo apt install postgresql -y &>> $log_file 2>&1)
 error_check "Failed to install postgres. Output: $output"
 
 log_message "Installing tmux"

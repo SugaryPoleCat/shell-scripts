@@ -42,4 +42,6 @@ bash $SCRIPT_FOLDER/discord-bot-run.sh
 bash $SCRIPT_FOLDER/website-test-run.sh
 bash $SCRIPT_FOLDER/postgres.sh
 
+echo "Dont forget to configure NGINX and Certbot manually!!!" &>> $log_file
+
 # Create the thing for the website stuff
