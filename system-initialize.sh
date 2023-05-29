@@ -5,7 +5,7 @@ if [ ! -d "$LOG_FOLDER" ]; then
 fi
 
 # Get the log_file
-log_file="$LOG_FOLDER/apt-update.log"
+log_file="$LOG_FOLDER/system-initialize.log"
 
 # Import handlers
 source $SCRIPT_FOLDER/handlers.sh
@@ -14,6 +14,8 @@ source $SCRIPT_FOLDER/handlers.sh
 
 bash $SCRIPT_FOLDER/apt-update.sh
 bash $SCRIPT_FOLDER/apt-packages.sh
+
+log_file="$LOG_FOLDER/system-initialize.log"
 
 # git repos
 if [ ! -d $PROGRAMMING_FOLDER ]; then
@@ -38,5 +40,6 @@ cd $SCRIPT_FOLDER
 # not sure about those things being necessary
 bash $SCRIPT_FOLDER/discord-bot-run.sh
 bash $SCRIPT_FOLDER/website-test-run.sh
+bash $SCRIPT_FOLDER/postgres.sh
 
 # Create the thing for the website stuff
