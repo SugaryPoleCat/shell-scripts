@@ -30,7 +30,7 @@ error_check "Failed to install snap core. Output: $output"
 
 echo "Refreshing snap core" &>> $log_file
 output=$(sudo snap refresh core &>> $log_file 2>&1)
-error_check "Failed to install snap core. Output: $output"
+error_check "Failed to refresh snap core. Output: $output"
 
 log_message "Installing certbot"
 output=$(sudo snap install --classic certbot &>> $log_file 2>&1)
@@ -52,4 +52,7 @@ cd $HOME/../../
 
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
+cd $HOME
 # here we should run the certbot stuff.
+
+echo "Because I'm a little bit stupid, you must configure nginx yourself, cause I'm not sure how to do that using CLI yet." &>> $log_file

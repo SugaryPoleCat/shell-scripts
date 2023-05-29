@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d "$LOG_FOLDER" ]; then
+	mkdir "$LOG_FOLDER"
+fi
+
 # Get the log_file
 log_file="$LOG_FOLDER/system-reboot.log"
 
