@@ -16,8 +16,7 @@ fi
 
 # Change directory
 log_message "Changing directory to bot directory..."
-output=$(cd "$DISCORD_FOLDER/$DISCORD_BOT_REPO/" &>> $log_file 2>&1)
-error_check "Failed to change directory. Output: $output"
+cd "$DISCORD_FOLDER/$DISCORD_BOT_REPO"
 
 # Git fetch and pull
 log_message "Fetching and pulling from Git..."
@@ -43,8 +42,7 @@ error_check "Failed to start Discord bot. Output: $output"
 
 # Change directory back to home
 log_message "Returning home..."
-output=$(cd ~ &>> $log_file 2>&1)
-error_check "Failed to return to home directory. Output: $output"
+cd $SCRIPT_FOLDER
 # If you can't go back to your home directory, you have some other problems on your system man.
 
 log_message "discord-bot-run executed successfully!"

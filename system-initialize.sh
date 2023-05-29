@@ -14,6 +14,7 @@ source $SCRIPT_FOLDER/handlers.sh
 
 bash $SCRIPT_FOLDER/apt-update.sh
 bash $SCRIPT_FOLDER/apt-packages.sh
+bash $SCRIPT_FOLDER/npm-update.sh
 
 log_file="$LOG_FOLDER/system-initialize.log"
 
@@ -44,8 +45,9 @@ cd $SCRIPT_FOLDER
 # not sure about those things being necessary
 bash $SCRIPT_FOLDER/discord-bot-run.sh
 bash $SCRIPT_FOLDER/website-test-run.sh
-bash $SCRIPT_FOLDER/postgres.sh
+# bash $SCRIPT_FOLDER/postgres.sh
 
 echo "Dont forget to configure NGINX and Certbot manually!!!" &>> $log_file
+echo "To configure certbot run: sudo certbot --nginx, follow instructions, then go ahead and test if renewing the certification works with: sudo certbot renew --dry-run"
 
 # Create the thing for the website stuff
