@@ -35,6 +35,9 @@ if [ ! -d $WEBSITES_FOLDER ]; then
 	mkdir $WEBSITES_FOLDER
 fi
 
+# DONT FORGET TO CONFIGURE YOUR SSH-KEY FIRST!!!
+# And upload those keys to your git websites.
+
 cd $DISCORD_FOLDER
 git clone $GIT_HUB/$DISCORD_BOT_REPO
 

@@ -7,6 +7,7 @@ log_file="$LOG_FOLDER/discord-bot-stop.log"
 source $SCRIPT_FOLDER/handlers.sh
 
 log_message "Getting node's link and installing it"
+# This installs version 20 of node.
 sudo curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash - &&\
 sudo apt-get install -y nodejs
 log_message "Node has been installed"

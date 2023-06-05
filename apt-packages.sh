@@ -52,8 +52,9 @@ cd $HOME/../../
 
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
-cd $HOME
+cd $SCRIPT_FOLDER
 # here we should run the certbot stuff.
 
 echo "Because I'm a little bit stupid, you must configure nginx yourself, cause I'm not sure how to do that using CLI yet." &>> $log_file
 echo "After you configure your NGINX, run certbot with sudo certbot --nginx. Also have to be done manually." &>> $log_file
+echo "DONE!!!" &>> $log_file

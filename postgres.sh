@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Create a database and stuff automatically.
+echo "Configuring postgres...."
 sudo -u postgres createuser $POSTGRES_USERNAME
 sudo -u postgres createdb $POSTGRES_DATABASE
 sudo -u postgres psql <<EOF
@@ -9,3 +10,4 @@ EOF
 sudo -u postgres psql <<EOF
 GRANT ALL PRIVILEGES ON DATABASE $POSTGRES_DATABASE TO $POSTGRES_USERNAME;\q
 EOF
+echo "Done!"

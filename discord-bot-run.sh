@@ -22,6 +22,7 @@ cd "$DISCORD_FOLDER/$DISCORD_BOT_REPO"
 log_message "Fetching and pulling from Git..."
 output=$(git fetch &>> $log_file 2>&1)
 error_check "Failed to fetch from Git. Output: $output"
+
 output=$(git pull &>> $log_file 2>&1)
 error_check "Failed to pull from Git. Output: $output"
 

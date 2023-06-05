@@ -32,4 +32,8 @@ echo "Refreshing certbot" &>> $log_file
 output=$(sudo snap refresh certbot &>> $log_file 2>&1)
 error_check "Failed to refresh certbot. Output: $output"
 
+echo "Updating npm" &>> $log_file
+output=$(bash "$SCRIPT_FOLDER/npm-update.sh" &>> $log_file 2>&1)
+error_check "Failed to update npm. Output: $output"
+
 log_message "apt-update completed!"
